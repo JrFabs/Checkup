@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Confirmation Chain</title>
+  <style>
+    #noButton {
+      position: absolute;
+    }
+  </style>
+  <script>
+    function confirmStep1() {
+      var step1Confirmation = confirm("Are you really okay?");
+      if (step1Confirmation) {
+        confirmStep2();
+      }
+    }
+
+    function confirmStep2() {
+      var step2Confirmation = confirm("Are you sure?");
+      if (step2Confirmation) {
+        confirmStep3();
+      }
+    }
+
+    function confirmStep3() {
+      var step3Confirmation = confirm("Are you really sure?");
+      if (step3Confirmation) {
+         confirmStep4();
+      }
+    }
+
+    function confirmStep4() {
+      var step4Confirmation = confirm("Really?");
+      if (step4Confirmation) {
+        alert("Okay, have a nice day!");
+      }
+    }
+
+    function moveButton() {
+      var button = document.getElementById('noButton');
+      var x = Math.random() * (window.innerWidth - button.offsetWidth);
+      var y = Math.random() * (window.innerHeight - button.offsetHeight);
+      button.style.left = x + 'px';
+      button.style.top = y + 'px';
+    }
+  </script>
+</head>
+<body style="justify-content: center; text-align: center; background-color: rgb(168, 187, 240);">
+  <br><br><br><br><br><br>
+  <h2 style="color:rgb(193, 246, 253)"> Are you Feeling well? </h2>
+  <img src="https://media4.giphy.com/media/VUhn4clMyitnG/200w.webp?cid=ecf05e47b6gaa2wxx2suajdsob7aqtiwhys4sp28ncfxruto&rid=200w.webp&ct=g" height="25%" width="25%" />
+  <br>
+  <br>
+  <button onclick="confirmStep1()" style="border-radius: 12px; background-color: rgb(182, 231, 215);color:black;width: 80px; height:40px; border-color: cornsilk;">Yes</button>
+  <button id="noButton" onmousemove="moveButton()" style="border-radius: 12px; background-color: rgb(173, 235, 214);color:black;width: 80px; height:40px; border-color: cornsilk;">No</button>
+</body>
+</html>
